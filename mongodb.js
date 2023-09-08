@@ -14,8 +14,8 @@ const databaseName = 'task-manager';
 
     const db = client.db(databaseName);
 
-    const result = await db.collection('users').deleteOne({name: "josh"})
-    console.log(result)
+    // const result = await db.collection('users').deleteOne({name: "josh"})
+    // console.log(result)
 
     // const result = await db.collection('users').deleteMany(
     //   {age: 27}
