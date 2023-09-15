@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  // useFindAndModify: false
 });
 
 
@@ -25,18 +26,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
 // }
 
 // createUser();
-
-const Task = mongoose.model('Task', {
-    description: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    completed: {
-        type: Boolean,
-        default: false        
-    }
-})
 
 
 // async function createTask() {
