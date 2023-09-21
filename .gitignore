@@ -1,0 +1,36 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore logs and other generated files
+*.log
+*.pid
+*.lock
+npm-debug.log*
+
+# Ignore environment files
+.env
+
+# Ignore build output
+/build
+
+# Ignore dependency directories
+/*/node_modules
+/*/*/node_modules
+
+# Ignore npm's cache
+.npm
+
+# Ignore local .env files
+.env.local
+
+# Ignore .DS_Store (macOS system file)
+.DS_Store
+
+# Ignore Thumbs.db (Windows system file)
+Thumbs.db
+
+# Ignore .vscode settings
+.vscode/
+
+# Ignore yarn.lock file
+yarn.lock
