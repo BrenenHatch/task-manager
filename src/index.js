@@ -17,32 +17,25 @@ app.use(taskRouter)
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
-})
+})  
+
+const Task = require('./models/task');
+const User = require('./models/user');
+
+const main = async () => {
+    // const task = await Task.findById('651d854f96b1ee0c33c94478');
+    // await task.populate('owner')
+    // console.log(task.owner)
 
 
-// const jwt = require('jsonwebtoken')
+    const user = await User.findById('651d815cc63827cdabe7cab1');
 
-// const myFunction = async () => {
-//     const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', {expiresIn: '7 days'})
-//     console.log(token)
+    if (user) {
+        await user.populate( { path: 'tasks', model: Task } ) 
+        console.log(user.tasks);
+    } else {
+        console.log('User not found');
+    }
+}
 
-//     const data = jwt.verify(token, 'thisismynewcourse')
-//     console.log(data)
-// }
-
-// myFunction();
-
-// const bcrypt = require('bcryptjs')
-
-// const myFunction = async () => {
-//     const password = 'Red12345!'
-//     const hashedPassword = await bcrypt.hash(password, 8)
-
-//     console.log(password)
-//     console.log(hashedPassword)
-
-//     const isMatch = await bcrypt.compare('Red12345!', hashedPassword)
-//     console.log(isMatch)
-// }
-
-// myFunction()
+main()
